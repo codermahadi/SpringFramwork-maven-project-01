@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+
+    <bean id="patient" class="com.main.Patient">
+        <property name="emarhencyContacts">
+            <list>
+                <ref bean="contact1" />
+                <ref bean="contact2" />
+                <ref bean="contact3" />
+                <ref bean="contact4" />
+            </list>
+        </property>
+
+        <property name="criticalContact">
+
+            <bean class="com.main.EmarhencyContact">
+                <property name="name" value="Critical Link" />
+                <property name="phoneNumber" value="01911674151" />
+            </bean>
+
+        </property>
+
+    </bean>
+
+    <bean id="contact1" class="com.main.EmarhencyContact">
+        <property name="name" value="imran" />
+        <property name="phoneNumber" value="01717677540" />
+    </bean>
+
+    <bean id="contact2" class="com.main.EmarhencyContact">
+        <property name="name" value="Tamrij" />
+        <property name="phoneNumber" value="01717677541" />
+    </bean>
+
+    <bean id="contact3" class="com.main.EmarhencyContact">
+        <property name="name" value="Omit" />
+        <property name="phoneNumber" value="01717677542" />
+    </bean>
+
+    <bean id="contact4" class="com.main.EmarhencyContact">
+        <property name="name" value="Mahadi" />
+        <property name="phoneNumber" value="01717677543" />
+    </bean>
+
+</beans>
