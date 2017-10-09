@@ -1,10 +1,13 @@
 package com.main;
 
+import org.springframework.stereotype.Component;
+
 import java.util.Random;
 
 /**
  * Created by Mahadi on 10/9/2017.
  */
+@Component
 public class RandomSpeech {
 
     private String[] texts = {

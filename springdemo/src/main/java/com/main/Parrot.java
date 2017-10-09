@@ -1,5 +1,7 @@
 package com.main;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 /**
@@ -8,14 +10,16 @@ import org.springframework.stereotype.Component;
 @Component
 public class Parrot {
 
-    private int id;
+    private String id;
     private String speech;
 
-    public void setId(int id) {
+    @Autowired
+    public void setId(@Value("#{randomSpeech.getText()?.length()}") String id) {
         this.id = id;
     }
 
-    public void setSpeech(String speech) {
+    @Autowired
+    public void setSpeech(@Value("#{randomSpeech.getText()}") String speech) {
         this.speech = speech;
     }
 
