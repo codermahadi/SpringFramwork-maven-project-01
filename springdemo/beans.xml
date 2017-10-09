@@ -9,7 +9,12 @@
        http://www.springframework.org/schema/context
        http://www.springframework.org/schema/context/spring-context.xsd">
 
+    <bean id="parrot" class="com.main.Parrot">
+        <property name="id" value="#{14 + 25}"></property>
+        <property name="speech" value="#{randomspeech.getText()}"></property>
+    </bean>
 
-    <context:annotation-config></context:annotation-config>
-    <context:component-scan base-package="com.main"></context:component-scan>
+    <bean id="randomspeech" class="com.main.RandomSpeech">
+
+    </bean>
 </beans>
