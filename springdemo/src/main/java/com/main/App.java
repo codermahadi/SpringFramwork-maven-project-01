@@ -11,9 +11,9 @@ public class App {
 
         ApplicationContext context = new FileSystemXmlApplicationContext("beans.xml");
 
-        Logger logger = (Logger) context.getBean("logger");
 
-        logger.consolewriter("Hi there");
-        logger.filewriter("Hi Mahadi");
+        Cat cat = (Cat) context.getBean("cat");
+        cat.speak();
+
     }
 }

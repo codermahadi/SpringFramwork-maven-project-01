@@ -1,21 +1,26 @@
 package com.main;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import javax.inject.Inject;
 
 /**
  * Created by Mahadi on 10/7/2017.
  */
+@Component
 public class Logger {
 
     private ConsolWriter consolWriter;
     private FileWriter fileWriter;
 
-//    Default Constructor
-    public Logger() {
+    @Inject
+    public void setConsolWriter(ConsolWriter consolWriter) {
+        this.consolWriter = consolWriter;
     }
 
-    public Logger(ConsolWriter consolWriter, FileWriter fileWriter) {
-        this.consolWriter = consolWriter;
+    @Inject
+    public void setFileWriter(FileWriter fileWriter) {
         this.fileWriter = fileWriter;
     }
 
@@ -24,29 +29,16 @@ public class Logger {
         return consolWriter;
     }
 
-    @Autowired
-    public void setConsolWriter(ConsolWriter consolWriter) {
-        this.consolWriter = consolWriter;
-    }
-
 //    File Writer
     public FileWriter getFileWriter() {
         return fileWriter;
     }
 
-    @Autowired
-    public void setFileWriter(FileWriter fileWriter) {
-        this.fileWriter = fileWriter;
-    }
-
     public void consolewriter(String s) {
-
         consolWriter.writer(s);
-
     }
 
     public void filewriter(String s) {
-
         fileWriter.writer(s);
     }
 }
